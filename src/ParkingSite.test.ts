@@ -4,7 +4,9 @@ import { ParkingSite } from "./ParkingSite";
 test("Test Something", () => {
   const parkingSite = new ParkingSite(defaultBays);
 
-  console.log("!!parkingSite", parkingSite);
+  const suitableBays = parkingSite.findContiguousBays(10);
+
+  console.log("!!suitableBays", suitableBays);
 
   expect(true).toBe(true);
 });
