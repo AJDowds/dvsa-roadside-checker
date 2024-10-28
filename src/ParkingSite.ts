@@ -10,14 +10,22 @@ export class ParkingSite {
     this.bays = bays;
   }
 
-  findContiguousBays(vehicleLength: number) {
+  findContiguousBays(vehicleLength: number): ParkingBay[][] {
     let possibleBays: ParkingBay[][] = [];
 
     for (let i = 0; i < this.bays.length; i++) {
-      console.log("!!current bay:", this.bays[i]);
+      let currentLength = 0;
+      let contiguousBays: ParkingBay[] = [];
 
-      if (vehicleLength <= this.bays[i].length) {
-        possibleBays.push([this.bays[i]]);
+      for (let j = i; j < this.bays.length; j++) {
+        const currentBay = this.bays[j];
+        currentLength += currentBay.length;
+        contiguousBays.push(currentBay);
+
+        if (currentLength >= vehicleLength) {
+          possibleBays.push([...contiguousBays]);
+          break;
+        }
       }
     }
 
