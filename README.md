@@ -13,3 +13,7 @@ Finds contiguous bays which can accommodate the specified vehicle (i.e. combined
 ## Future Improvements
 
 - Reservation mechanism to avoid collisions on bays which are available at the point of request but not at the point of use.
+  - Extend the parkingBay interface or create a parkingReservation interface which contains parkingBay
+  - Find the array of possible bays
+  - Choose the optimal bay (minimum number of bays used) and place a lock on it
+  - Return the list and the recommended bay, allowing the user to confirm or select another which can be checked for reservation
